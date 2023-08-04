@@ -1,80 +1,82 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>memberModify</title>
-        <link rel="stylesheet" href="../resources/css/memberModify.css">
-        <link rel="stylesheet" href="../resources/css/memberModifyReset.css">
-    </head>
-    <body>
-        <div id="container">
-            <header>
-                <div id="welcome">친구 초대하면 친구도 나도 적립금 5천원!</div>
-                    <div id="logo">
-                        <a href="../index.html">
-                            <img id="logoImg" src="../resources/images/index/logo.png" alt="logo">
-                        </a>
-                    </div>
-                    <section>
-                        <form action="https://search.naver.com/search.naver">
-                            <div class="search">
-                                <input type="text" name="query" value="" placeholder="   검색어를 입력하세요.">
-                                <button type="submit">검색</button>
-                            </div>
-                        </form>
-                    </section>
-                    <div>
-                        <p class="member1"><a href="../member/signup.html">회원가입</a></p>
-                        <p class="member1"><a href="../member/login.html">로그인</a></p>
-                        <p class="member1"><a href="../member/costomerCenter.html">고객센터</a></p>
-                    </div>
-                    <div id="headlayer">
-                        <a href="../product/shipping.html"><img src="../resources/images/index/location.png" alt="location"></a> 
-                        <a href="../member/myPage.html"><img src="../resources/images/index/heart.png" alt="heart"></a>
-                        <a href="../product/cart.html"><img src="../resources/images/index/trolley.png" alt="trolley"></a>
-                    </div>
-                <div>
-                    <nav>
-                        <ul id="topMenu">
-                                <li><a href="#"><img id="menuicon" src="../resources/images/index/MenuIcon.png" alt="MenuIcon">카테고리</a></li>
-                                <!-- <li><a href="#">카테고리</a></li> -->
-                                <li><a href="#">신상품</a></li>
-                                <li><a href="#">베스트</a></li>
-                                <li><a href="#">알뜰쇼핑</a></li>
-                                <li><a href="#">특가/혜택</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>memberModify</title>
+ <link rel="stylesheet" href="/resources/css/memberModify.css">
+ <link rel="stylesheet" href="/resources/css/memberModifyReset.css">
+</head>
+<body>
+	  <div id="container">
+	  <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+<!--             <header> -->
+<!--                 <div id="welcome">친구 초대하면 친구도 나도 적립금 5천원!</div> -->
+<!--                     <div id="logo"> -->
+<!--                         <a href="../index.html"> -->
+<!--                             <img id="logoImg" src="../resources/images/index/logo.png" alt="logo"> -->
+<!--                         </a> -->
+<!--                     </div> -->
+<!--                     <section> -->
+<!--                         <form action="https://search.naver.com/search.naver"> -->
+<!--                             <div class="search"> -->
+<!--                                 <input type="text" name="query" value="" placeholder="   검색어를 입력하세요."> -->
+<!--                                 <button type="submit">검색</button> -->
+<!--                             </div> -->
+<!--                         </form> -->
+<!--                     </section> -->
+<!--                     <div> -->
+<!--                         <p class="member1"><a href="../member/signup.html">회원가입</a></p> -->
+<!--                         <p class="member1"><a href="../member/login.html">로그인</a></p> -->
+<!--                         <p class="member1"><a href="../member/costomerCenter.html">고객센터</a></p> -->
+<!--                     </div> -->
+<!--                     <div id="headlayer"> -->
+<!--                         <a href="../product/shipping.html"><img src="../resources/images/index/location.png" alt="location"></a>  -->
+<!--                         <a href="../member/myPage.html"><img src="../resources/images/index/heart.png" alt="heart"></a> -->
+<!--                         <a href="../product/cart.html"><img src="../resources/images/index/trolley.png" alt="trolley"></a> -->
+<!--                     </div> -->
+<!--                 <div> -->
+<!--                     <nav> -->
+<!--                         <ul id="topMenu"> -->
+<!--                                 <li><a href="#"><img id="menuicon" src="../resources/images/index/MenuIcon.png" alt="MenuIcon">카테고리</a></li> -->
+<!--                                 <li><a href="#">카테고리</a></li> -->
+<!--                                 <li><a href="#">신상품</a></li> -->
+<!--                                 <li><a href="#">베스트</a></li> -->
+<!--                                 <li><a href="#">알뜰쇼핑</a></li> -->
+<!--                                 <li><a href="#">특가/혜택</a></li> -->
+<!--                         </ul> -->
+<!--                     </nav> -->
+<!--                 </div> -->
+<!--             </header> -->
             <main class="contents">
 
-
+			<form action="/customer/update.do" method="post">
 
 
                 <div class="outer">
                     <div id="joinInfoArea">
-<!--                         <form id="joinForm"  -->
-<!--                         method="post" onsubmit="return validate();"> -->
+                        <form id="joinForm" 
+                        method="post" onsubmit="return validate();">
                             <h2>회원정보수정</h2>
                             <hr>
                             
                             <div><h4>* 아이디</h4></div>
-                            <div><span class="input_area"><input type="text" maxlength="13" name="userId" value="kh정보230515" readonly></span></div>
+                            <div><span class="input_area"><input type="text" maxlength="13" name="customer-id" value="${customer.customerId}" readonly></span></div>
                             
                             
-                            
+<%--                             <%= userLogin.getUserPwd() %> --%>
                             <h4>* 현재 비밀번호</h4>
-                            <span class="input_area"><input type="password" maxlength="15" name="userPwd" value="<%= userLogin.getUserPwd() %>"></span>
+                            <span class="input_area"><input type="password" maxlength="15" name="customer-pw" value=""></span>
                             
-
+<%-- 								<%= userLogin.getUserPwd() %> --%>
                             <h4>* 새 비밀번호</h4>
-                            <span class="input_area"><input type="password" maxlength="15" name="userPwd" value="<%= userLogin.getUserPwd() %>"></span>
+                            <span class="input_area"><input type="password" maxlength="15" name="customer-pw" value=""></span>
                             
                                             
                             <h4>* 이름</h4>
-                            <span class="input_area"><input type="text" maxlength="5" name="userName" value="박선우"></span>
+                            <span class="input_area"><input type="text" maxlength="5" name="customer-name" value="${customer.customerName}"readonly"></span>
                             
                             <h4>연락처</h4>
                             <span class="input_area"><input type="tel" maxlength="11" name="phone"
@@ -113,7 +115,7 @@
                     </div>
                 </div>
 
-
+			</form>
 
 
 
@@ -152,5 +154,5 @@
                     </section>
             </footer>
         </div>
-    </body>
+</body>
 </html>

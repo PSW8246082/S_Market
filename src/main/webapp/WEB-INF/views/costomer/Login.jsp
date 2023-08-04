@@ -11,44 +11,45 @@
 </head>
 <body>
 	 <div id="container">
-            <header>
-                <div id="welcome">친구 초대하면 친구도 나도 적립금 5천원!</div>
-                    <div id="logo">
-                        <a href="/index.html">
-                            <img id="logoImg" src="/resources/images/index/logo.png" alt="logo">
-                        </a>
-                    </div>
-                    <section>
-                        <form action="https://search.naver.com/search.naver">
-                            <div class="search">
-                                <input type="text" name="query" value="" placeholder="   검색어를 입력하세요.">
-                                <button type="submit">검색</button>
-                            </div>
-                        </form>
-                    </section>
-                    <div>
-                        <p class="member1"><a href="/customer/register.do">회원가입</a></p>
-                        <p class="member1"><a href="/Market/login.do">로그인</a></p>
-                        <p class="member1"><a href="../member/costomerCenter.html">고객센터</a></p>
-                    </div>
-                    <div id="headlayer">
-                        <a href="../product/shipping.html"><img src="/resources/images/index/location.png" alt="location"></a> 
-                        <a href="../member/myPage.html"><img src="/resources/images/index/heart.png" alt="heart"></a>
-                        <a href="../product/cart.html"><img src="/resources/images/index/trolley.png" alt="trolley"></a>
-                    </div>
-                <div>
-                    <nav>
-                        <ul id="topMenu">
-                                <li><a href="#"><img id="menuicon" src="/resources/images/index/MenuIcon.png" alt="MenuIcon">카테고리</a></li>
-                                <!-- <li><a href="#">카테고리</a></li> -->
-                                <li><a href="#">신상품</a></li>
-                                <li><a href="#">베스트</a></li>
-                                <li><a href="#">알뜰쇼핑</a></li>
-                                <li><a href="#">특가/혜택</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
+	 <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+<!--             <header> -->
+<!--                 <div id="welcome">친구 초대하면 친구도 나도 적립금 5천원!</div> -->
+<!--                     <div id="logo"> -->
+<!--                         <a href="/index.html"> -->
+<!--                             <img id="logoImg" src="/resources/images/index/logo.png" alt="logo"> -->
+<!--                         </a> -->
+<!--                     </div> -->
+<!--                     <section> -->
+<!--                         <form action="https://search.naver.com/search.naver"> -->
+<!--                             <div class="search"> -->
+<!--                                 <input type="text" name="query" value="" placeholder="   검색어를 입력하세요."> -->
+<!--                                 <button type="submit">검색</button> -->
+<!--                             </div> -->
+<!--                         </form> -->
+<!--                     </section> -->
+<!--                     <div> -->
+<!--                         <p class="member1"><a href="/customer/register.do">회원가입</a></p> -->
+<!--                         <p class="member1"><a href="/Market/login.do">로그인</a></p> -->
+<!--                         <p class="member1"><a href="../member/costomerCenter.html">고객센터</a></p> -->
+<!--                     </div> -->
+<!--                     <div id="headlayer"> -->
+<!--                         <a href="../product/shipping.html"><img src="/resources/images/index/location.png" alt="location"></a>  -->
+<!--                         <a href="../member/myPage.html"><img src="/resources/images/index/heart.png" alt="heart"></a> -->
+<!--                         <a href="../product/cart.html"><img src="/resources/images/index/trolley.png" alt="trolley"></a> -->
+<!--                     </div> -->
+<!--                 <div> -->
+<!--                     <nav> -->
+<!--                         <ul id="topMenu"> -->
+<!--                                 <li><a href="#"><img id="menuicon" src="/resources/images/index/MenuIcon.png" alt="MenuIcon">카테고리</a></li> -->
+<!--                                 <li><a href="#">카테고리</a></li> -->
+<!--                                 <li><a href="#">신상품</a></li> -->
+<!--                                 <li><a href="#">베스트</a></li> -->
+<!--                                 <li><a href="#">알뜰쇼핑</a></li> -->
+<!--                                 <li><a href="#">특가/혜택</a></li> -->
+<!--                         </ul> -->
+<!--                     </nav> -->
+<!--                 </div> -->
+<!--             </header> -->
             <main class="contents">
                 <div class="login-wrapper">
                     <h2>Login</h2>

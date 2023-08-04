@@ -39,6 +39,18 @@ public class Customer {
 		this.customerPhone = customerPhone;
 	}
 
+	
+
+	public Customer(String customerId, String customerPw, String customerName, String customerEmail,
+			String customerPhone) {
+		super();
+		this.customerId = customerId;
+		this.customerPw = customerPw;
+		this.customerName = customerName;
+		this.customerEmail = customerEmail;
+		this.customerPhone = customerPhone;
+	}
+
 
 	public String getCustomerId() {
 		return customerId;

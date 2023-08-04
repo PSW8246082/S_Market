@@ -9,6 +9,7 @@ import customer.model.vo.Customer;
 
 
 
+
 public class CustomerDAO {
 	
 	
@@ -93,6 +94,80 @@ public class CustomerDAO {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+		return result;
+	}
+
+	
+	public Customer selectOneById(Connection conn, String customerId) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "SELECT * FROM CUSTOMER_TBL WHERE CUSTOMER_ID = ? ";
+		Customer cOne = null;
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, customerId);  
+			
+			
+			rset = pstmt.executeQuery();    //누락주의 , 결과값 rset으로 받기 주의
+			
+			if(rset.next()) {
+				cOne = rsetToCustomer(rset);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				rset.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}		
+		return cOne;
+	}
+
+	public int deleteCustomer(Connection conn, String customerId) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "DELETE FROM CUSTOMER_TBL WHERE CUSTOMER_ID = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, customerId);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} try {
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public int updateCustomer(Connection conn, Customer customer) {
+		String query = "UPDATE CUSTOMER_TBL SET CUSTOMER_PW = ?, CUSTOMER_NAME = ?, CUSTOMER_PHONE = ?, CUSTOMER_EMAIL = ?, UPDATE_DATE = SYSDATE WHERE MEMBER_ID = ?";
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, customer.getCustomerPw());
+			pstmt.setString(2, customer.getCustomerName());
+			pstmt.setString(3, customer.getCustomerPhone());
+			pstmt.setString(4, customer.getCustomerEmail());
+			pstmt.setString(5, customer.getCustomerId());
+	
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return result;
 	}
