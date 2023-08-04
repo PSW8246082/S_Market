@@ -52,18 +52,18 @@
 <!--             </header> -->
             <main class="contents">
 
-			<form action="/customer/update.do" method="post">
+		
 
 
                 <div class="outer">
                     <div id="joinInfoArea">
-                        <form id="joinForm" 
+                        <form action="/customer/update.do"  id="joinForm" 
                         method="post" onsubmit="return validate();">
                             <h2>회원정보수정</h2>
                             <hr>
                             
                             <div><h4>* 아이디</h4></div>
-                            <div><span class="input_area"><input type="text" maxlength="13" name="customer-id" value="${customer.customerId}" readonly></span></div>
+                            <div><span class="input_area"><input type="text" maxlength="13" name="customer-id" value= ${sessionScope.customerName } readonly></span></div>
                             
                             
 <%--                             <%= userLogin.getUserPwd() %> --%>
@@ -76,35 +76,35 @@
                             
                                             
                             <h4>* 이름</h4>
-                            <span class="input_area"><input type="text" maxlength="5" name="customer-name" value="${customer.customerName}"readonly"></span>
+                            <span class="input_area"><input type="text" maxlength="5" name="customer-name" value= ${sessionScope.costomerName } readonly></span>
                             
                             <h4>연락처</h4>
                             <span class="input_area"><input type="tel" maxlength="11" name="phone"
-                                                    placeholder="(-없이)01012345678" value="" readonly></span>
+                                                    placeholder="(-없이)01012345678" value="" ></span>
                                                     
                             <h4>이메일</h4>
-                            <span class="input_area"><input type="email" name="email" value="kh정보@naver.com" readonly></span>
+                            <span class="input_area"><input type="email" name="email" value="" ></span>
                             
                 
                             <h4>우편번호</h4>
-                            <span class="input_area"><input type="text" name="address" class="postcodify_postcode5" value="04540" readonly></span>
+                            <span class="input_area"><input type="text" name="address" class="postcodify_postcode5" value="" ></span>
                             <button type="button" id="postcodify_search_button">검색</button>
                             <h4>도로명주소</h4>
-                            <span class="input_area"><input type="text" name="address" class="postcodify_address" value="서울 중구 남대문로 120" readonly></span>
+                            <span class="input_area"><input type="text" name="address" class="postcodify_address" value="" ></span>
                             <h4>상세주소</h4>
-                            <span class="input_area"><input type="text" name="address" class="postcodify_details" value="대일빌딩 2층, 3층"></span>
+                            <span class="input_area"><input type="text" name="address" class="postcodify_details" value=""></span>
                             
                             <h4>관심분야</h4>
                             <span class="input_area">
-                                <input type="checkbox" id="sports" name="interest" value="운동">
+                                <input type="checkbox" id="sports" name="interest" value="">
                                 <label for="sports">운동</label>
-                                <input type="checkbox" id="climbing" name="interest" value="등산">
+                                <input type="checkbox" id="climbing" name="interest" value="">
                                 <label for="climbing">패션</label>
-                                <input type="checkbox" id="cooking" name="interest" value="요리">
+                                <input type="checkbox" id="cooking" name="interest" value="">
                                 <label for="cooking">요리</label>
-                                <input type="checkbox" id="game" name="interest" value="게임">
+                                <input type="checkbox" id="game" name="interest" value="">
                                 <label for="game">게임</label>
-                                <input type="checkbox" id="etc" name="interest" value="기타">
+                                <input type="checkbox" id="etc" name="interest" value="">
                                 <label for="etc">기타</label>
                             </span>
                             <div class="btnArea">
@@ -115,7 +115,7 @@
                     </div>
                 </div>
 
-			</form>
+	
 
 
 

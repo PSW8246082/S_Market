@@ -25,11 +25,11 @@ public class CustomerService {
 		//커밋/롤백
 	
 	
-	public Customer selectCheckLogin(Customer market) {
+	public Customer selectCheckLogin(Customer customer) {
 		//연결생성
 		Connection conn = jdbcTemplate.createConnection();
 		//DAO호출 (연결도 넘겨줘야함)
-		Customer cOne = cDao.selectCheckLogin(conn, market);
+		Customer cOne = cDao.selectCheckLogin(conn, customer);
 		//커밋/롤백은 SELECT에서 안해줘도 된다. 할 필요가 없음 저장하고 롤백할 필요 없으니까
 		return cOne;
 	}

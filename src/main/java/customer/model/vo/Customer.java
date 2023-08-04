@@ -26,7 +26,9 @@ public class Customer {
 		this.customerPw = customerPw;
 	}
 	
+	
 
+	
 	public Customer(String customerId, String customerPw, String customerName, String customerNo, String customerGender,
 			String customerEmail, String customerPhone) {
 		super();
@@ -41,6 +43,15 @@ public class Customer {
 
 	
 
+	public Customer(String customerId, String customerName, String customerEmail, String customerPhone) {
+		super();
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.customerEmail = customerEmail;
+		this.customerPhone = customerPhone;
+	}
+
+
 	public Customer(String customerId, String customerPw, String customerName, String customerEmail,
 			String customerPhone) {
 		super();
@@ -51,6 +62,7 @@ public class Customer {
 		this.customerPhone = customerPhone;
 	}
 
+	
 
 	public String getCustomerId() {
 		return customerId;

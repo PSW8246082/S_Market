@@ -15,7 +15,7 @@ public class CustomerDAO {
 	
 	
 	//DB에서 저장된 ID와 PW를 리턴함
-	public Customer selectCheckLogin(Connection conn, Customer market) {
+	public Customer selectCheckLogin(Connection conn, Customer customer) {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -25,8 +25,8 @@ public class CustomerDAO {
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, market.getCustomerId());  //객체로 입력된 값이 넘어왔으니까 get으로 꺼내쓴다
-			pstmt.setString(2, market.getCustomerPw());  //만약 costomerId로 넘어왔으면 그자체로 적어주면됨
+			pstmt.setString(1, customer.getCustomerId());  //객체로 입력된 값이 넘어왔으니까 get으로 꺼내쓴다
+			pstmt.setString(2, customer.getCustomerPw());  //만약 costomerId로 넘어왔으면 그자체로 적어주면됨
 			
 			rset = pstmt.executeQuery();  //누락주의 , 결과값 rset으로 저장하기 주의!
 			
@@ -152,7 +152,7 @@ public class CustomerDAO {
 	}
 
 	public int updateCustomer(Connection conn, Customer customer) {
-		String query = "UPDATE CUSTOMER_TBL SET CUSTOMER_PW = ?, CUSTOMER_NAME = ?, CUSTOMER_PHONE = ?, CUSTOMER_EMAIL = ?, UPDATE_DATE = SYSDATE WHERE MEMBER_ID = ?";
+		String query = "UPDATE CUSTOMER_TBL SET CUSTOMER_PW = ?, CUSTOMER_NAME = ?, CUSTOMER_PHONE = ?, CUSTOMER_EMAIL = ?  WHERE CUSTOMER_ID = ?";
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
