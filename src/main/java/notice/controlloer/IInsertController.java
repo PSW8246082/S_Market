@@ -39,11 +39,11 @@ public class IInsertController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		String noticeWriter = request.getParameter("writer");
+		String noticeSebject = request.getParameter("title");
+		String noticeContent = request.getParameter("content");
 		
-		String noticeSebject = request.getParameter("noticeSubject");
-		String noticeContent = request.getParameter("noticeContent");
-		
-		Notice notice = new Notice(noticeSebject, noticeContent);
+		Notice notice = new Notice(noticeSebject, noticeContent, noticeWriter);
 		
 		NoticeService service = new NoticeService();
 		int result = service.insertNotice(notice);

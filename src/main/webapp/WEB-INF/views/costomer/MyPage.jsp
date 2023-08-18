@@ -49,7 +49,7 @@
 <!--             </header> -->
             <main class="contents">
             
-			<form action="/customer/mypage.do">
+		
 
                 <h2>마이페이지</h2>
                 <hr>
@@ -91,7 +91,7 @@
                         <img src="../resources/images/myPage/myPage_banner.png" alt="myPage_banner">
                     </div>
                 </div> 
-			</form>
+	
 			
 			<script>
 			function checkDelete() {

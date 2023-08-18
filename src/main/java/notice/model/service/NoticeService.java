@@ -62,6 +62,18 @@ public class NoticeService {
 		return result;
 	}
 
+	public int deleteNoticeByNo(int noticeNo) {
+		Connection conn = jdbcTemplate.createConnection();
+		int result = nDao.deleteNoticeByNo(conn, noticeNo);
+		if(result > 0) {
+			jdbcTemplate.comit(conn);
+		} else {
+			jdbcTemplate.rollback(conn);
+		}
+		jdbcTemplate.close(conn);
+		return result;
+	}
+
 	
 
 }
